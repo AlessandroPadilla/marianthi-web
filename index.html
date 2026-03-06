@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+
+  <title>MARIANTHI | Terapias holísticas presenciales en Tlajomulco (GDL)</title>
+  <meta name="description" content="MARIANTHI: terapias holísticas presenciales en Tlajomulco de Zúñiga (Guadalajara) y productos artesanales armonizados con Reiki. Agenda por WhatsApp." />
+  <meta name="robots" content="index,follow" />
+
+  <style>
+    :root{
+      --bg:#fffafc; --bg-alt:#fff3f8; --card:rgba(255,255,255,.92);
+      --text:#2a2430; --muted:#6b6472;
+      --accent:#c58bd6; --accent-strong:#d7a2b9; --gold:#b79a5a;
+      --radius-xl:22px; --shadow-soft:0 18px 45px rgba(40,20,60,.12);
+      --ring:0 0 0 3px rgba(197,139,214,.25);
+      --transition-fast:.22s ease-out;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
+      background:radial-gradient(circle at top,#fff1f7 0,#fffafc 55%);
+      color:var(--text); min-height:100vh; overflow-x:hidden;
+      text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; line-height:1.45;
+    }
+    .skip-link{position:absolute;left:-999px;top:10px;background:#fff;color:#111;padding:10px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.12);z-index:999}
+    .skip-link:focus{left:10px;outline:none;box-shadow:var(--ring)}
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
+    .soft-bg{
+      position:fixed; inset:-20%;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(197,139,214,.20), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(215,162,185,.20), transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(183,154,90,.10), transparent 55%);
+      pointer-events:none; z-index:-1; filter:blur(2px);
+    }
+
+    .navbar{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);background:rgba(255,250,252,.78);border-bottom:1px solid rgba(0,0,0,.06)}
+    .navbar-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;min-width:220px}
+    .logo-img{width:42px;height:42px;border-radius:999px;object-fit:cover;box-shadow:0 14px 35px rgba(183,154,90,.18);border:1px solid rgba(0,0,0,.06);background:#fff}
+    .brand-title{font-weight:800;letter-spacing:.06em}
+    .brand-sub{font-size:.78rem;color:var(--muted);margin-top:2px}
+    .nav-links{display:flex;align-items:center;gap:16px;font-size:.92rem}
+    .nav-links a{color:var(--muted);text-decoration:none;padding:6px 8px;border-radius:10px;transition:background var(--transition-fast),color var(--transition-fast)}
+    .nav-links a:hover{color:var(--text);background:rgba(197,139,214,.10)}
+    .nav-links a:focus-visible{outline:none;box-shadow:var(--ring)}
+    .nav-cta{
+      padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:800;color:#2a2430;
+      background:linear-gradient(135deg, rgba(215,162,185,.95), rgba(197,139,214,.95));
+      border:1px solid rgba(0,0,0,.08);box-shadow:0 18px 45px rgba(40,20,60,.12);white-space:nowrap;
+    }
+    @media(max-width:760px){
+      .nav-links a:not(.nav-cta){display:none}
+      .brand{min-width:unset}
+    }
+
+    header.hero{padding:44px 0 42px}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:center}
+    @media(max-width:920px){.hero-grid{grid-template-columns:1fr}}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(197,139,214,.10);border:1px solid rgba(197,139,214,.22);font-size:.78rem;color:#4a3f55;margin-bottom:12px}
+    .badge-dot{width:7px;height:7px;border-radius:999px;background:rgba(183,154,90,.9)}
+    .hero-title{font-size:clamp(2rem,4vw,2.8rem);line-height:1.1;margin-bottom:10px;letter-spacing:-0.02em}
+    .hero-title span{background:linear-gradient(120deg,var(--accent-strong),var(--accent),var(--gold));-webkit-background-clip:text;color:transparent}
+    .hero-text{font-size:1rem;color:var(--muted);max-width:56ch;line-height:1.65;margin-bottom:16px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px}
+    .btn-main{
+      padding:12px 18px;border-radius:999px;border:1px solid rgba(0,0,0,.08);
+      background:linear-gradient(135deg, rgba(215,162,185,.95), rgba(197,139,214,.95));
+      color:#2a2430;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;gap:10px;
+      box-shadow:0 18px 45px rgba(40,20,60,.12);transition:transform var(--transition-fast);
+    }
+    .btn-main:hover{transform:translateY(-2px)}
+    .btn-main:focus-visible{outline:none;box-shadow:var(--ring)}
+    .btn-ghost{
+      padding:12px 16px;border-radius:999px;border:1px solid rgba(197,139,214,.35);
+      background:rgba(255,255,255,.65);color:#2a2430;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:10px
+    }
+    .btn-ghost:hover{background:rgba(197,139,214,.08)}
+    .btn-ghost:focus-visible{outline:none;box-shadow:var(--ring)}
+    .hero-note{font-size:.86rem;color:var(--muted)}
+
+    .panel{background:rgba(255,255,255,.82);border:1px solid rgba(0,0,0,.06);border-radius:26px;padding:16px;box-shadow:var(--shadow-soft);position:relative;overflow:hidden}
+    .panel::before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 20% 20%, rgba(197,139,214,.25), transparent 50%);opacity:.8;pointer-events:none}
+    .panel-inner{position:relative}
+    .panel-kicker{font-size:.8rem;color:var(--muted);margin-bottom:8px}
+    .panel-title{font-size:1.12rem;margin-bottom:10px}
+    .panel-title span{color:var(--gold);font-weight:900}
+    .panel-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:12px}
+    @media(max-width:520px){.panel-grid{grid-template-columns:1fr}}
+    .panel-card{background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:12px}
+    .panel-pill{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(215,162,185,.14);border:1px solid rgba(215,162,185,.18);font-size:.74rem;color:#4a3f55;margin-bottom:8px;font-weight:800}
+    .panel-list{list-style:none;display:grid;gap:6px}
+    .panel-list li{display:flex;gap:8px;color:#524a5c;font-size:.92rem}
+    .panel-dot{width:8px;height:8px;border-radius:999px;background:rgba(183,154,90,.9);margin-top:6px;flex:0 0 auto}
+    .panel-side{display:grid;gap:10px}
+    .panel-stat{background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:10px 12px;font-size:.9rem;color:#524a5c}
+    .panel-stat strong{display:block;color:#2a2430;font-weight:900;margin-bottom:2px}
+
+    section{padding:34px 0}
+    .section-header{display:flex;flex-direction:column;gap:4px;margin-bottom:18px}
+    .section-kicker{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    .section-title{font-size:1.55rem;letter-spacing:-0.01em}
+    .section-title span{color:var(--gold)}
+    .section-sub{font-size:.98rem;color:var(--muted);max-width:70ch;line-height:1.6}
+    .grid{display:grid;gap:16px}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    @media(max-width:980px){.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:520px){.grid-4{grid-template-columns:1fr}}
+
+    .card{background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius-xl);padding:16px 16px 14px;box-shadow:0 14px 35px rgba(40,20,60,.10);position:relative;overflow:hidden}
+    .card:hover{transform:translateY(-1px);transition:transform var(--transition-fast)}
+    .card-icon{width:34px;height:34px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:rgba(197,139,214,.12);border:1px solid rgba(197,139,214,.18);margin-bottom:10px;font-size:18px}
+    .card-title{font-size:1.02rem;margin-bottom:4px}
+    .card-text{color:#595161;font-size:.94rem;line-height:1.55}
+    .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .pill{font-size:.78rem;padding:6px 10px;border-radius:999px;background:rgba(255,243,248,.95);border:1px solid rgba(0,0,0,.06);color:#5b5162;font-weight:700}
+
+    .product-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;border:1px solid rgba(0,0,0,.06);margin-bottom:12px;background:#fff}
+    .product-cta{display:inline-flex;align-items:center;gap:10px;margin-top:12px;text-decoration:none;font-weight:900;color:#2a2430;padding:10px 14px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:rgba(255,243,248,.95)}
+
+    details{background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:12px 14px}
+    summary{list-style:none;cursor:pointer}
+    summary::-webkit-details-marker{display:none}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .faq-q span{font-weight:900}
+    .faq-icon{color:var(--gold);font-size:18px;font-weight:900}
+    details p{margin-top:10px;color:#595161;line-height:1.7}
+
+    .contact-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px;align-items:start}
+    @media(max-width:920px){.contact-grid{grid-template-columns:1fr}}
+    .contact-row{margin-top:10px}
+    .label{font-size:.8rem;color:var(--muted);margin-bottom:2px}
+    .value{font-size:1rem;font-weight:800;color:#2a2430}
+    .link{color:#2a2430;text-decoration:none;border-bottom:1px dashed rgba(183,154,90,.55)}
+    .link:hover{border-bottom-style:solid}
+
+    footer{padding:18px 0 22px;border-top:1px solid rgba(0,0,0,.06);background:rgba(255,250,252,.70);text-align:center;color:var(--muted);font-size:.86rem;margin-top:18px}
+
+    .wa-float{
+      position:fixed;right:16px;bottom:16px;z-index:30;text-decoration:none;
+      padding:12px 14px;border-radius:999px;
+      background:linear-gradient(135deg, rgba(215,162,185,.95), rgba(197,139,214,.95));
+      border:1px solid rgba(0,0,0,.08);
+      color:#2a2430;font-weight:900;
+      box-shadow:0 18px 45px rgba(40,20,60,.14);
+      display:inline-flex;align-items:center;gap:10px;
+    }
+    .wa-float:focus-visible{outline:none;box-shadow:var(--ring)}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none !important}}
+  </style>
+</head>
+
+<body>
+  <div class="soft-bg" aria-hidden="true"></div>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <div class="page" id="contenido">
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="container navbar-inner">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+          <img class="logo-img" src="assets/logo.png" alt="Marianthi" />
+          <div>
+            <div class="brand-title">MARIANTHI</div>
+            <div class="brand-sub">Un santuario de luz y paz para tu alma</div>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="#servicios">Terapias</a>
+          <a href="#productos">Productos</a>
+          <a href="#historia">Sobre mí</a>
+          <a href="#contacto">Contacto</a>
+
+          <a class="nav-cta"
+             href="https://wa.me/5215541377361?text=Hola%20Marianthi,%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n%20presencial%20por%20favor."
+             target="_blank" rel="noopener">
+            Agendar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <header id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Sesiones presenciales · Tlajomulco de Zúñiga (Guadalajara)
+          </div>
+
+          <h1 class="hero-title">
+            Marianthi: un espacio de <span>sanación, calma y reconexión</span>.
+          </h1>
+
+          <p class="hero-text">
+            Terapias holísticas presenciales en Tlajomulco de Zúñiga (zona Guadalajara),
+            además de productos artesanales armonizados con Reiki para tu bienestar.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn-main"
+               href="https://wa.me/5215541377361?text=Hola%20Marianthi,%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n%20presencial%20en%20Tlajomulco.%20%C2%BFQu%C3%A9%20horarios%20tienes%3F"
+               target="_blank" rel="noopener">
+              Agendar por WhatsApp <span aria-hidden="true">→</span>
+            </a>
+
+            <a class="btn-ghost" href="#servicios">Ver terapias</a>
+          </div>
+
+          <p class="hero-note">
+            Por el momento, toda la información y pedidos se gestionan por WhatsApp. Productos con entrega local (sin envíos por ahora).
+          </p>
+        </div>
+
+        <div>
+          <div class="panel">
+            <div class="panel-inner">
+              <div class="panel-kicker">Presencial · Por cita</div>
+              <div class="panel-title">Acompañamiento con enfoque <span>humano y consciente</span></div>
+
+              <div class="panel-grid">
+                <div class="panel-card">
+                  <div class="panel-pill">¿Qué puedes trabajar?</div>
+                  <ul class="panel-list">
+                    <li><span class="panel-dot"></span>Estrés, ansiedad y descanso</li>
+                    <li><span class="panel-dot"></span>Bloqueos emocionales</li>
+                    <li><span class="panel-dot"></span>Equilibrio y claridad interior</li>
+                  </ul>
+                </div>
+                <div class="panel-side">
+                  <div class="panel-stat">
+                    <strong>Ubicación</strong>
+                    Tlajomulco de Zúñiga · Guadalajara y alrededores.
+                  </div>
+                  <div class="panel-stat">
+                    <strong>Entrega local</strong>
+                    Coordinación directa por WhatsApp.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Terapias</div>
+          <h2 class="section-title">Servicios de <span>sanación y acompañamiento</span></h2>
+          <p class="section-sub">
+            Sesiones presenciales por cita en Tlajomulco de Zúñiga. Agenda o pide información por WhatsApp.
+          </p>
+        </div>
+
+        <div class="grid grid-4">
+          <article class="card"><div class="card-icon">👐</div><h3 class="card-title">Terapia Reiki</h3><p class="card-text">Canaliza energía universal para promover relajación profunda, armonía y bienestar.</p><div class="pill-row"><span class="pill">Estrés y ansiedad</span><span class="pill">Equilibrio</span></div></article>
+          <article class="card"><div class="card-icon">🧲</div><h3 class="card-title">Magnetoterapia</h3><p class="card-text">Uso terapéutico de imanes para equilibrar el campo energético y apoyar bienestar físico.</p><div class="pill-row"><span class="pill">Dolor e inflamación</span><span class="pill">Circulación</span></div></article>
+          <article class="card"><div class="card-icon">🕯️</div><h3 class="card-title">Conoterapia</h3><p class="card-text">Terapia con velas especiales para armonizar, liberar energía y brindar ligereza y claridad.</p><div class="pill-row"><span class="pill">Relajación</span><span class="pill">Bienestar integral</span></div></article>
+          <article class="card"><div class="card-icon">🌸</div><h3 class="card-title">Flores de Bach</h3><p class="card-text">Esencias florales para equilibrar emociones, fortalecer autoestima y acompañar procesos.</p><div class="pill-row"><span class="pill">Ansiedad</span><span class="pill">Equilibrio emocional</span></div></article>
+          <article class="card"><div class="card-icon">🌿</div><h3 class="card-title">Aromaterapia</h3><p class="card-text">Aceites esenciales para apoyar relajación, descanso, estado de ánimo y concentración.</p><div class="pill-row"><span class="pill">Bienestar</span><span class="pill">Descanso</span></div></article>
+          <article class="card"><div class="card-icon">🌀</div><h3 class="card-title">Equilibrio de Chakras</h3><p class="card-text">Armonización de centros energéticos para liberar bloqueos y promover estabilidad emocional.</p><div class="pill-row"><span class="pill">Centrarte</span><span class="pill">Claridad</span></div></article>
+          <article class="card"><div class="card-icon">✨</div><h3 class="card-title">Limpieza del Aura</h3><p class="card-text">Limpieza energética para soltar cargas emocionales, recuperar vitalidad y sentir ligereza.</p><div class="pill-row"><span class="pill">Protección</span><span class="pill">Ligereza</span></div></article>
+          <article class="card"><div class="card-icon">🃏</div><h3 class="card-title">Tarot terapéutico</h3><p class="card-text">Lectura consciente enfocada en guía y crecimiento personal: claridad y autoconocimiento.</p><div class="pill-row"><span class="pill">Decisiones</span><span class="pill">Patrones</span></div></article>
+        </div>
+
+        <div style="margin-top:16px">
+          <a class="btn-main"
+             href="https://wa.me/5215541377361?text=Hola%20Marianthi,%20quiero%20informaci%C3%B3n%20sobre%20las%20terapias%20presenciales%20en%20Tlajomulco%20y%20c%C3%B3mo%20agendar%20por%20favor."
+             target="_blank" rel="noopener">
+            Pedir información por WhatsApp <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Productos</div>
+          <h2 class="section-title">Sales para baño con <span>aromaterapia y energía Reiki</span></h2>
+          <p class="section-sub">
+            Elaboradas de forma artesanal. Entrega local en la zona (sin envíos por ahora). Pedidos por WhatsApp.
+          </p>
+        </div>
+
+        <div class="grid grid-4">
+          <article class="card">
+            <img class="product-img" src="assets/sales-rosa.webp" alt="Sales Rosa Marianthi" />
+            <h3 class="card-title">Rosa — Amor y armonía emocional</h3>
+            <p class="card-text">Ideal para abrir el corazón, calmar emociones y fortalecer amor propio.</p>
+            <a class="product-cta" href="https://wa.me/5215541377361?text=Hola%20Marianthi,%20me%20interesan%20las%20sales%20Rosa.%20%C2%BFMe%20das%20informaci%C3%B3n%20y%20entrega%20local%20por%20favor%3F" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+          </article>
+
+          <article class="card">
+            <img class="product-img" src="assets/sales-mandarina.webp" alt="Sales Mandarina Marianthi" />
+            <h3 class="card-title">Mandarina — Alegría y conexión</h3>
+            <p class="card-text">Para recargar emociones, elevar ánimo y promover gratitud y optimismo.</p>
+            <a class="product-cta" href="https://wa.me/5215541377361?text=Hola%20Marianthi,%20me%20interesan%20las%20sales%20Mandarina.%20%C2%BFMe%20das%20informaci%C3%B3n%20por%20favor%3F" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+          </article>
+
+          <article class="card">
+            <img class="product-img" src="assets/sales-verde.webp" alt="Sales Verde Marianthi" />
+            <h3 class="card-title">Verde — Limpieza y renovación</h3>
+            <p class="card-text">Para liberar energía densa, renovar vibración e iniciar nuevos ciclos con frescura.</p>
+            <a class="product-cta" href="https://wa.me/5215541377361?text=Hola%20Marianthi,%20me%20interesan%20las%20sales%20Verde.%20%C2%BFMe%20das%20informaci%C3%B3n%20por%20favor%3F" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+          </article>
+
+          <article class="card">
+            <img class="product-img" src="assets/sales-lila.webp" alt="Sales Lila Marianthi" />
+            <h3 class="card-title">Lila — Relajación profunda</h3>
+            <p class="card-text">Ideal para estrés, insomnio y ansiedad. Apoya la calma y el descanso.</p>
+            <a class="product-cta" href="https://wa.me/5215541377361?text=Hola%20Marianthi,%20me%20interesan%20las%20sales%20Lila.%20%C2%BFMe%20das%20informaci%C3%B3n%20por%20favor%3F" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+          </article>
+        </div>
+
+        <div style="margin-top:14px">
+          <div class="card">
+            <h3 class="card-title">Entrega de productos</h3>
+            <p class="card-text">
+              Por el momento no se realizan envíos. La entrega es <strong>local</strong> y se coordina directamente por WhatsApp.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORIA -->
+    <section id="historia">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Sobre mí</div>
+          <h2 class="section-title">Mi historia: <span>dolor transformado en propósito</span></h2>
+          <p class="section-sub">Acompaño procesos de sanación desde la experiencia, con respeto y humanidad.</p>
+        </div>
+
+        <div class="card">
+          <p class="card-text">
+            Mi camino espiritual comenzó en un momento de profundo dolor. A los 24 años viví la pérdida de mi hijo,
+            y esa herida me llevó a buscar una forma real de sanación. La metafísica fue mi primer sostén; después
+            estudié Semiología de la Vida Cotidiana y comprendí que sanar es un trabajo interno constante. Más adelante
+            llegó el Reiki, y con él una nueva forma de acompañar y sostener. Hoy acompaño procesos de sanación porque
+            sé lo que es sentirse rota… y también sé que la luz interior puede volver a recordarse.
+          </p>
+
+          <div style="margin-top:12px">
+            <details>
+              <summary>
+                <div class="faq-q">
+                  <span>Leer historia completa</span>
+                  <div class="faq-icon" aria-hidden="true">+</div>
+                </div>
+              </summary>
+              <p>
+                Mi camino espiritual no comenzó por curiosidad… comenzó por una herida profunda.
+                A los 24 años viví la experiencia más dolorosa de mi vida: la pérdida de mi hijo. Ese momento marcó un antes y un después.
+                La tristeza se convirtió en depresión, el vacío parecía interminable y la vida perdió sentido por un tiempo.<br><br>
+
+                Pero en medio de esa oscuridad apareció mi primer encuentro con la metafísica. No llegó como una moda ni como un interés pasajero;
+                llegó como una tabla de salvación. Fue el primer paso hacia mi sanación interior. Comprendí que el dolor podía transformarse en conciencia,
+                y que dentro de mí existía una fuerza que aún no conocía.<br><br>
+
+                Más adelante estudié Semiología de la Vida Cotidiana. Ahí entendí que la sanación no es un evento, no es un curso, no es una terapia aislada…
+                es un trabajo interno constante. Es una responsabilidad personal que se vive las 24 horas del día, los 365 días del año. Aprendí a observar mis
+                pensamientos, mis emociones y mis elecciones.<br><br>
+
+                Después llegó el Reiki. Y hoy puedo decir que la vida, en su infinita sabiduría, me estaba preparando.<br><br>
+
+                A los 33 años, mi esposo enfermó de leucemia mieloblástica aguda. Fueron dos años de profunda prueba espiritual.
+                Dos años donde el miedo, la esperanza, la incertidumbre y el amor convivían en el mismo espacio.<br><br>
+
+                El Reiki se convirtió en sostén. Mis maestros fueron guía. Y cada día aprendí algo esencial: valorar el instante presente,
+                respetar el camino de cada alma y aceptar que no todo está bajo nuestro control, pero sí nuestra actitud ante lo que vivimos.<br><br>
+
+                En ese mismo periodo llegó a mi vida Un Curso de Milagros. Y ahí comprendí una verdad que transformó mi forma de existir:
+                Siempre podemos elegir. Ante cada circunstancia solo hay dos caminos: lo disfrutas o lo padeces.<br><br>
+
+                Cuando mi esposo trascendió, el dolor volvió a tocar mi vida… pero esta vez yo ya no era la misma mujer de años atrás.
+                Había aprendido a mirar el sufrimiento con otros ojos. Había aprendido a elegir.<br><br>
+
+                Y en medio del duelo, descubrí con claridad mi vocación. Entendí que todo lo vivido no era castigo, era preparación.
+                Que cada pérdida me había llevado más profundo hacia mi propósito. Que mi historia no era solo para sobrevivirla, sino para compartirla.<br><br>
+
+                Hoy acompaño procesos de sanación porque sé lo que significa sentirse rota. Sé lo que es atravesar la noche oscura del alma.
+                Y también sé que dentro de cada ser humano existe una luz intacta esperando ser recordada.<br><br>
+
+                Mi misión es acompañarte a descubrir tu propia luz, a reconciliarte con tu historia y a caminar en paz con tu mundo interno y externo.
+                Porque la sanación no es olvidar lo que duele… es transformarlo en conciencia, amor y propósito. 💜
+              </p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Contacto</div>
+          <h2 class="section-title">Agenda tu <span>sesión presencial</span></h2>
+          <p class="section-sub">Tlajomulco de Zúñiga (zona Guadalajara) · Atención por cita.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card">
+            <div class="contact-row">
+              <div class="label">WhatsApp</div>
+              <div class="value">
+                <a class="link" href="https://wa.me/5215541377361" target="_blank" rel="noopener">
+                  +52 1 55 4137 7361
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="label">Ubicación</div>
+              <div class="value">
+                <a class="link" href="https://maps.app.goo.gl/bD56HaF9phT71u4N7" target="_blank" rel="noopener">
+                  Tlajomulco de Zúñiga (ver en Google Maps)
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="label">Entrega de productos</div>
+              <div class="value">Local (sin envíos por ahora)</div>
+            </div>
+
+            <div style="margin-top:14px">
+              <a class="btn-main"
+                 href="https://wa.me/5215541377361?text=Hola%20Marianthi,%20quiero%20agendar%20una%20sesi%C3%B3n%20presencial%20en%20Tlajomulco.%20%C2%BFQu%C3%A9%20horarios%20tienes%3F"
+                 target="_blank" rel="noopener">
+                Escribir por WhatsApp <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Mensaje rápido</h3>
+            <p class="card-text">Si prefieres, copia y pega este mensaje en WhatsApp:</p>
+            <div style="margin-top:12px;padding:12px;border-radius:16px;border:1px dashed rgba(183,154,90,.45);background:rgba(255,243,248,.85)">
+              <p style="margin:0;color:#4f4659">
+                Hola Marianthi, me gustaría agendar una sesión presencial en Tlajomulco o pedir información sobre (terapia/producto). Gracias.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 MARIANTHI · Un santuario de luz y paz para tu alma</footer>
+  </div>
+
+  <a class="wa-float"
+     href="https://wa.me/5215541377361?text=Hola%20Marianthi,%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n%20presencial%20por%20favor."
+     target="_blank" rel="noopener" aria-label="Agendar por WhatsApp">
+    WhatsApp · Agendar
+  </a>
+</body>
+</html>
